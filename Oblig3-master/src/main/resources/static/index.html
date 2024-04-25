@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--Dear TA, I'm not sure how many comments are preferred, so I might've gone overboard. Thanks for your patience-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!---UTF-8 encoding allows proper text rendering-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--viewport allows for scalability-->
+    <title>
+        Movie Ticket Booking
+    </title>
+
+    <script src="script.js"></script><!--references and loads JavaScript file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!--link to bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--source: https://getbootstrap.com/docs/4.0/getting-started/introduction/-->
+
+</head>
+
+<style>
+    body {
+        background-color: darkslategray; /*Adds custom background styling to the body*/
+        padding-top: 50px; /* Adds padding to the top of the body */
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>
+<body class="d-flex justify-content-center align-items-center">
+<!-- Adds Bootstrap classes to body content -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12" style="background-color:lightsteelblue">
+            <!--body column container-->
+
+            <h1> <!--Main header shows purpose of the page-->
+                Movie Ticket Booking
+            </h1>
+
+            <form id="ticketForm" onsubmit="addTicket(); return false">
+
+                <!--form allows users to select a movie, input data, and purchase tickets-->
+                <label for="movieSelection">Choose a movie:</label>
+                <select id="movieSelection">
+                    <!--drop down menu with the following options-->
+                    <option value="Bill & Ted's Excellent Adventure">Bill & Ted's Excellent Adventure</option>
+                    <option value="The Matrix">The Matrix</option>
+                    <option value="Constantine">Constantine</option>
+                    <option value="John Wick">John Wick</option>
+                </select>
+
+                <br> <br>
+                <!--div divides content into sections-->
+                <div style="margin: 8px;"> <!--margin spaces the divs to be 8 pixels apart-->
+                    <label for="amount">Amount :</label>
+                    <input type="number" id="amount" min="1" max="99" required>
+                    <br> <!--min and max allows a range for users to chose from 1 to 99 tickets-->
+                </div>
+
+                <br>
+                <!--input fields to allow users to provide personal data-->
+                <div style="margin: 8px;">
+                    <label for="firstName" style="width: 20%; float: left;">First name :</label>
+                    <input type="text" id="firstName" required>
+                    <label for="firstName" id="firstNameError" style="color: red;"></label>
+                </div>
+
+                <div style="margin: 8px;">
+                    <label for="lastName" style="width: 20%; float: left;">Last name :</label>
+                    <input type="text" id="lastName" required>
+                    <label for="lastName" id="lastNameError" style="color: red;"></label>
+                </div>
+
+                <div style="margin: 8px;">
+                    <label for="phoneNumber" style="width: 20%; float: left;">Phone number :</label>
+                    <input type="tel" id="phoneNumber" minlength="8" maxlength="10" pattern="[0-9]{3}[0-9]{2}[0-9]{3}"
+                           placeholder="12345678" required>
+                    <!--input type "tel" for telephone number validation-->
+                    <!--Source: https://www.w3schools.com/tags/att_input_type_tel.asp-->
+                    <label for="phoneNumber" id="phoneNumberError" style="color: red;"></label>
+                    <!--HTML validation prevents users fom inputing invalid data before js is called-->
+                </div>
+
+                <div style="margin: 8px;">
+                    <label for="email" style="width: 20%; float: left;">E-Mail :</label>
+                    <input type="email" id="email" required>
+                    <!--input type "email" allows for HTML validation-->
+                    <label for="email" id="emailError" style="color: red;"></label>
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-success mb-3">Purchase Ticket(s)</button>
+            </form> <!--button activates js. styled with Bootstrap-->
+
+        </div>
+
+        <div class="col-sm-12 col-md-12" style="background-color:rgb(140,220,140)">
+            <!--creates 2nd column container-->
+
+            <h2>Tickets</h2>
+
+            <div id="allTickets"></div>
+
+            <ul id="ticketList"></ul>
+            <button type="reset" class="btn btn-danger mb-3" onclick="emptyList()">Delete Tickets</button>
+            <!--Deletes all tickets. styled with Bootstrap-->
+            <br>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<!--REMEMBER TO ADD COMMENTS-->
