@@ -4,7 +4,7 @@ GitHub username: HannahBanana7075
 
 GetHub REPO: https://github.com/HannahBanana7075/1700-Oblig-1.git
 
-YouTube video: In progress.
+YouTube video: (https://youtu.be/h0S7T2Rq2Yw)
 
 Full Name: Hannah Leigh Sepanak
 
